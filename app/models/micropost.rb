@@ -1,4 +1,7 @@
 class Micropost < ActiveRecord::Base
+	include Tire::Model::Search
+	include Tire::Model::Callbacks
+
 	belongs_to :user
 	default_scope -> { order('created_at DESC') }
 	validates :content, presence: true, length: { maximum: 140 }
@@ -9,5 +12,7 @@ class Micropost < ActiveRecord::Base
                         WHERE follower_id = :user_id"
     	where("user_id IN (#{followed_user_ids}) OR user_id = :user_id",
           				user_id: user.id)
-  end
+  	end
+
+  	
 end

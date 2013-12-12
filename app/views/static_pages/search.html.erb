@@ -1,0 +1,12 @@
+<%= form_tag microposts_path, method: :get do %>
+<p>
+	<%= text_field_tag :query, params[:query] %>
+	<%= submit_tag "Search", name: nil %>
+</p>
+<% if @feed_items.nil? %>
+	
+<% else %>
+	<%= render 'shared/feed' %>
+<% end %>
+
+<% end %>
