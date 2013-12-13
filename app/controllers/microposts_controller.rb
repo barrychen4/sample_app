@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
 
   def index
     if params[:query].present?
-      @feed_items = Micropost.search(params[:query], load: true)
+      @feed_items = Micropost.search(params[:query], load: true, page: (params[:page] || 1))
       render 'static_pages/search'
     else
       @feed_items = []
