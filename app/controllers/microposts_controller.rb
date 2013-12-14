@@ -28,6 +28,13 @@ class MicropostsController < ApplicationController
     redirect_to root_url
   end
 
+  def syllablerecorder
+
+    @curr_dekaaz = params[:curr_dekaaz]
+    @syll_count = system("java edu.northwestern.at.utils.corpuslinguistics.syllablecounter.EnglishSyllableCounter '#{@curr_dekaaz}'")
+    @syll_count = $?.exitstatus
+  end
+
   private
 
     def micropost_params
