@@ -31,7 +31,7 @@ class MicropostsController < ApplicationController
   def syllablerecorder
 
     @curr_dekaaz = params[:curr_dekaaz]
-    @syll_count = system("./test.sh")
+    @syll_count = system("java EnglishSyllableCounter '#{@curr_dekaaz}'")
     @syll_count = $?.exitstatus
   end
 
