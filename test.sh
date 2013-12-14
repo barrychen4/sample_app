@@ -1,2 +1,2 @@
 javac EnglishSyllableCounter.java
-java EnglishSyllableCounter "a"
+java EnglishSyllableCounter "alabama"
