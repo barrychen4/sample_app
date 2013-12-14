@@ -1,3 +1,3 @@
 javac EnglishSyllableCounter.java
-java EnglishSyllableCounter "a"
+java EnglishSyllableCounter "animal"
 rm -f EnglishSyllableCounter.class
